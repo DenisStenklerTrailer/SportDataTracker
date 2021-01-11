@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<title> Sport Data Tracker</title>
+	<head>
+		<link href="../static/main.css" rel="stylesheet">
+	</head>
+	
+	<body>
+	
+		<header>
+			<div> 
+				<p id="HeaderText">SportDataTracker </p>
+				<img id="HeaderImg" src="Runner.png" action="main.html">
+			</div>
+		</header>
+		
+		<div class="DataCollector"> 
+			<h1> Insert your activity data below! </h1>
+			
+			<form action="main.html" method="POST">
+				
+				<label for="SportType">Sport Type</label> <br>
+				<select name="SportType" id="SportType">
+				  <option value="Run">Running</option>
+				  <option value="Cycling">Cycling</option>
+				  <option value="MountainBiking">Mountain Biking</option>
+				  <option value="Hike">Hiking</option>
+				</select><br>
+				
+				<label for="distance">Distance</label> <br>
+				<input  type="number" placeholder="Distance:"  name="distance" step="0.1" required><br>
+				
+				<label for="ElevationGain">Elevation gain</label> <br>
+				<input type="number" placeholder="Elevation gain:"  name="ElevationGain" required><br>
+				
+				<label for="time">Time</label> <br>
+				<input type="date" placeholder="Date:" required><input type="time" placeholder="TIME:" required><br><br>
+				
+				<input type="submit" value="Submit">
+			</form>
+			
+		</div>
+	</body>
+</html>
