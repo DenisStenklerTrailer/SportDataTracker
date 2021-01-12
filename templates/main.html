@@ -9,20 +9,20 @@
 		<header>
 			<div> 
 				<p id="HeaderText">SportDataTracker </p>
-				<img id="HeaderImg" src="Runner.png">
+				<img id="HeaderImg" src="../static/Runner.png">
 			</div>
 		</header>
 	
 		<div class="MainPage"> 
 		<h1> Welcome to Sport Data Tracker! </h1>
-			<form id="LeftButton" action="DataCollector.html">
+			<form id="LeftButton" action="{{url_for('DataCollector')}}" method="GET">
 				<h3> INSERT ACTIVITY DATA </h3>
-				<button type="submit" style="background-image: url('InsertData.png');"> </button>
+				<button type="submit" style="background-image: url('../static/InsertData.png');"> </button>
 			</form>
 
-			<form id="RightButton" action="statisctics.html">
+			<form id="RightButton" action="{{url_for('statistics')}}" method="GET">
 				<h3> ACTIVITY STATISTICS </h3>
-				<button type="submit" style="background-image: url('Stats.png');">  </button>
+				<button type="submit" style="background-image: url('../static/Stats.png');">  </button>
 			</form>	
 		</div>
 		
