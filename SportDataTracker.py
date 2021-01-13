@@ -8,18 +8,20 @@ db = SQLAlchemy(app)
 class Data(db.Model):
     __tablename__="data"
     id = db.Column(db.Integer, primary_key = True)
-    SportType = db.Column(db.Integer)
+    SportType = db.Column(db.String)
     Distance = db.Column(db.Float)
     ElevationGain = db.Column(db.Integer)
     Date = db.Column(db.Date)
     Time = db.Column(db.Time)
+    Description = db.Column(db.String)
 
-    def __init__(self,SportType, Distance, ElevationGain, Date, Time):
+    def __init__(self,SportType, Distance, ElevationGain, Date, Time, Description):
         self.SportType = SportType
         self.Distance = Distance
         self.ElevationGain = ElevationGain
         self.Date = Date
         self.Time = Time
+        self.Description = Description
 
 @app.route("/")
 def index():
@@ -49,6 +51,12 @@ def submit():
         ElevationGain = request.form["ElevationGain"]
         Date = request.form["Date"]
         Time = request.form["Time"]
+        Description = request.form["Description"]
+
+        data = Data(SportType, Distance, ElevationGain, Date, Time, Description)
+
+        db.session.add(data)
+        db.session.commit()
 
     return redirect('/')
 

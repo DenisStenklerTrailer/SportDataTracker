@@ -53,6 +53,15 @@ input[type=submit] {
   background-color: #a2c1f5;
 }
 
+input[type=description] {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
 
 .MainPage {
 	margin: 0 auto;
