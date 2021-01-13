@@ -1,7 +1,25 @@
 from flask import Flask, render_template, request, redirect, url_for
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:postgres@localhost:5433/SportDataCollector'
+db = SQLAlchemy(app)
+
+class Data(db.Model):
+    __tablename__="data"
+    id = db.Column(db.Integer, primary_key = True)
+    SportType = db.Column(db.Integer)
+    Distance = db.Column(db.Float)
+    ElevationGain = db.Column(db.Integer)
+    Date = db.Column(db.Date)
+    Time = db.Column(db.Time)
+
+    def __init__(self,SportType, Distance, ElevationGain, Date, Time):
+        self.SportType = SportType
+        self.Distance = Distance
+        self.ElevationGain = ElevationGain
+        self.Date = Date
+        self.Time = Time
 
 @app.route("/")
 def index():
@@ -32,10 +50,7 @@ def submit():
         Date = request.form["Date"]
         Time = request.form["Time"]
 
-        print(SportType)
-
     return redirect('/')
-
 
 
 if __name__ == '__main__':
