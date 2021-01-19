@@ -16,9 +16,47 @@
 			</div>
 		</header>
 
-		<div class="DataCollector">
-			<h1> Insert your activity data below! </h1>
+		<div class="Statistics">
+			<h1> Statistics </h1>
 
-		</div>
+			<table class="styled-table">
+				<th>
+					<tr style="color: black; ">
+						<th>Training nr</th>
+						<th>Sport type</th>
+						<th>Distance</th>
+						<th>Elevation gain</th>
+						<th>Date</th>
+						<th>Time</th>
+						<th>Description</th>
+					</tr>
+				</th>
+				{%for id in query%}
+					<tr>
+						<td>
+						{{id.id}}
+						</td>
+						<td>
+						{{id.SportType}}
+						</td>
+						<td>
+						{{id.Distance}}
+						</td>
+						<td>
+						{{id.ElevationGain}}
+						</td>
+						<td>
+						{{id.Date}}
+						</td>
+						<td>
+						{{id.Time}}
+						</td>
+						<td>
+						{{id.Description}}
+						</td>
+					</tr>
+				{%endfor%}
+			 </table>
+		</>
 	</body>
 </html>

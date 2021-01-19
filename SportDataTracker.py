@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:postgres@localhost:5433/SportDataCollector'
 db = SQLAlchemy(app)
@@ -41,7 +42,7 @@ def statistics():
         # do stuff when the form is submitted
         return redirect(url_for('statistics'))
 
-    return render_template('statistics.html')
+    return render_template('statistics.html', query=Data.query.all())
 
 @app.route("/submit", methods=['GET','POST'])
 def submit():
@@ -58,7 +59,7 @@ def submit():
         db.session.add(data)
         db.session.commit()
 
-    return redirect('/')
+        return redirect('/')
 
 
 if __name__ == '__main__':
