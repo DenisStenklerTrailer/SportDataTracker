@@ -61,6 +61,11 @@ def submit():
 
         return redirect('/')
 
+@app.route('/delete_activity/<activity_id>', methods=['GET','POST'])
+def delete_activity(activity_id):
+    Data.query.filter_by(id = activity_id).delete()
+    db.session.commit()
+    return render_template('statistics.html', query=Data.query.all())
 
 if __name__ == '__main__':
     app.debug=True

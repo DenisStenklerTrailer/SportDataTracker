@@ -2,7 +2,7 @@
 <html lang="en">
 	<title> Sport Data Tracker</title>
 	<head>
-		<link href="../static/main.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../static/main.css" >
 	</head>
 
 	<body>
@@ -19,16 +19,17 @@
 		<div class="Statistics">
 			<h1> Statistics </h1>
 
-			<table class="styled-table">
+			<table>
 				<th>
-					<tr style="color: black; ">
+					<tr>
 						<th>Training nr</th>
 						<th>Sport type</th>
 						<th>Distance</th>
 						<th>Elevation gain</th>
 						<th>Date</th>
-						<th>Time</th>
+						<th>Duration</th>
 						<th>Description</th>
+						<th>Delete activity</th>
 					</tr>
 				</th>
 				{%for id in query%}
@@ -54,9 +55,14 @@
 						<td>
 						{{id.Description}}
 						</td>
+						<td>
+							<form id="DeleteButton" action="{{url_for('delete_activity', activity_id=id.id)}}" method="POST">
+								<button type="submit">Delete</button>
+							</form>
+						</td>
 					</tr>
 				{%endfor%}
 			 </table>
-		</>
+		</div>
 	</body>
 </html>
